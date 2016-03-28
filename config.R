@@ -1,0 +1,12 @@
+install.packages('curl')
+install.packages('jsonlite')
+install.packages('devtools')
+install.packages("magrittr")
+install.packages("dplyr")
+install.packages("leaflet")
+install.packages("rgdal")
+install.packages("stringr")
+install.packages("rgeos")
+install.packages("sampSurf")
+install.packages("pgirmess") # Computes the total length of a polyline.
+install.packages("mosaic")

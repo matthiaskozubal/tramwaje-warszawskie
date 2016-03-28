@@ -1,0 +1,69 @@
+stopDirection,stopId,stopLocalId,stopName,stopNum
+A,2008,13,Wiatraczna,0
+A,2008,05,Wiatraczna,1
+A,2007,01,Kickiego,2
+A,2006,03,Międzyborska,3
+A,2005,03,Praga-Płd.-Ratusz,4
+A,2004,03,Gocławska,5
+A,2003,03,Bliska,6
+A,2002,03,Lubelska,7
+A,2001,05,Al.Zieleniecka,8
+A,1001,04,Kijowska,9
+A,1002,04,Ząbkowska,10
+A,1003,03,Dw.Wileński,11
+A,1163,01,Park Praski,12
+A,7047,02,Stare Miasto,13
+A,7099,10,Metro Ratusz Arsenał,14
+A,7085,06,Kino Femina,15
+A,5002,04,Wola-Ratusz,16
+A,5003,04,Okopowa,17
+A,5004,04,Zajezdnia Wola,18
+A,5005,04,Płocka,19
+A,5006,04,Sokołowska,20
+A,5007,04,Os.Wolska,21
+A,5008,04,Elekcyjna,22
+A,5022,02,Cm.Prawosławny,23
+A,5009,06,Reduta Wolska,24
+A,5010,02,Sowińskiego,25
+A,5021,04,Fort Wola,26
+A,5001,04,Połczyńska-Parking P+R,27
+A,5012,08,Ciepłownia Wola,28
+A,5057,04,Synów Pułku,29
+A,5058,06,Hala Wola,30
+A,5059,04,Pl.Kasztelański,31
+A,5060,06,Czumy,32
+A,5034,06,Bemowo-Ratusz,33
+A,5035,04,Klemensiewicza,34
+B,5050,13,Os.Górczewska,0
+B,5035,03,Klemensiewicza,1
+B,5034,07,Bemowo-Ratusz,2
+B,5060,05,Czumy,3
+B,5058,05,Hala Wola,4
+B,5057,03,Synów Pułku,5
+B,5012,07,Ciepłownia Wola,6
+B,5001,03,Połczyńska-Parking P+R,7
+B,5021,03,Fort Wola,8
+B,5010,01,Sowińskiego,9
+B,5009,05,Reduta Wolska,10
+B,5008,03,Elekcyjna,11
+B,5007,03,Os.Wolska,12
+B,5006,03,Sokołowska,13
+B,5005,03,Płocka,14
+B,5004,03,Zajezdnia Wola,15
+B,5003,03,Okopowa,16
+B,5002,03,Wola-Ratusz,17
+B,7085,05,Kino Femina,18
+B,7099,09,Metro Ratusz Arsenał,19
+B,7047,01,Stare Miasto,20
+B,1163,02,Park Praski,21
+B,1003,07,Dw.Wileński,22
+B,1002,03,Ząbkowska,23
+B,1001,03,Kijowska,24
+B,2001,06,Al.Zieleniecka,25
+B,2002,04,Lubelska,26
+B,2003,04,Bliska,27
+B,2004,04,Gocławska,28
+B,2005,04,Praga-Płd.-Ratusz,29
+B,2006,04,Międzyborska,30
+B,2007,02,Kickiego,31
+B,2008,04,Wiatraczna,32
