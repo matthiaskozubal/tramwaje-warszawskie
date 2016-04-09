@@ -1,7 +1,5 @@
 setwd("/home/pawel/projects/tramwaje-warszawskie/")
 
-source("awesomeMarkers.R")
-
 library(jsonlite)
 library(magrittr)
 library(dplyr)
@@ -152,6 +150,8 @@ line26n = getLineStatus(26, line26)
 lineShape = readOGR(paste('line_scheme_26.geojson', sep=""), "OGRGeoJSON", verbose = F)
 showMap(line26n, lineShape)
 
+# Do zapisu split --> geojson
+rgdal::writeOGR(shape, filepath, "OGRGeoJSON", driver="GeoJSON")
 
 
 t = line26$Time %>% str_replace("T", " ") %>% strptime(format="%Y-%m-%d %H:%M:%S")
