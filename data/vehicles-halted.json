@@ -1,0 +1,10 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+                                                                                
+"features": [
+{ "type": "Feature", "id": 3, "properties": { "Status": "RUNNING", "FirstLine": 26.0, "Lon": 21.0849648, "Lines": "26             ", "Time": "2016-04-10T21:41:27", "Lat": 52.2446747, "LowFloor": 1, "Brigade": 3.0, "readTime": "2016-04-10 21:41:40", "adjustedLon": 21.0849648, "adjustedLat": 52.2446747, "split1Length": 0.0, "split2Length": 0.0, "direction": "terminated" }, "geometry": { "type": "Point", "coordinates": [ 21.0849648, 52.2446747 ] } },
+{ "type": "Feature", "id": 9, "properties": { "Status": "RUNNING", "FirstLine": 26.0, "Lon": 20.9001408, "Lines": "26             ", "Time": "2016-04-10T21:41:19", "Lat": 52.2393532, "LowFloor": 1, "Brigade": 9.0, "readTime": "2016-04-10 21:41:40", "adjustedLon": 20.9001408, "adjustedLat": 52.2393532, "split1Length": 0.0, "split2Length": 0.0, "direction": "terminated" }, "geometry": { "type": "Point", "coordinates": [ 20.9001408, 52.2393532 ] } },
+{ "type": "Feature", "id": 7, "properties": { "Status": "RUNNING", "FirstLine": 26.0, "Lon": 20.9009838, "Lines": "26             ", "Time": "2016-04-10T21:41:27", "Lat": 52.2386742, "LowFloor": 1, "Brigade": 7.0, "readTime": "2016-04-10 21:41:40", "adjustedLon": 20.9009838, "adjustedLat": 52.2386742, "split1Length": 0.0, "split2Length": 0.0, "direction": "terminated" }, "geometry": { "type": "Point", "coordinates": [ 20.9009838, 52.2386742 ] } }
+]
+}

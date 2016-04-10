@@ -26,28 +26,64 @@ var mapboxTiles = L.tileLayer('https://api.mapbox.com/v4/mapbox.streets/{z}/{x}/
     attribution: '© <a href="https://www.mapbox.com/map-feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 });
 
-function addAnimatedMarker(map, lineCoords) {
-    var line = L.polyline(lineCoords.map(function (coords) { return [coords[1], coords[0]]; }));
-    var animatedMarker = L.animatedMarker(line.getLatLngs(), {
-      distance: 50,  // meters
-      interval: 1000, // milliseconds
-    });
-    map.addLayer(animatedMarker);
+var tramIcon = L.icon({
+  iconUrl: 'tram-icon.png',
+  iconSize: [25, 25]
+});
+
+function swapLonLat(coords) {
+  return [coords[1], coords[0]];
 }
 
+// http://leafletjs.com/examples/custom-icons.html
+
+function addAnimatedMarker(map, lineCoords) {
+  var line = L.polyline(lineCoords.map(swapLonLat));
+  var animatedMarker = L.animatedMarker(line.getLatLngs(), {
+    distance: 10,  // meters
+    interval: 1000, // milliseconds
+    icon: tramIcon,
+    autoStart: false
+  });
+  map.addLayer(animatedMarker);
+}
+
+function addMarker(map, pointCoords) {
+  L.marker(swapLonLat(pointCoords), {
+    icon: tramIcon
+  }).addTo(map);
+}
 
 var map = L.map('map')
     .addLayer(mapboxTiles)
-    .setView([52.231765, 21.035], 12);
+    .setView([52.237704, 20.983058], 12);
 
-$.ajax({dataType: "json", url: "line_scheme_26.geojson",
-success: function(geojson) {
-  setInterval(function () {
-    console.log("interval!")
-    L.geoJson(geojson).addTo(map);
-    addAnimatedMarker(map, geojson.features[0].geometry.coordinates);
-  }, 2000);
-}}).error(function() {});
+$.ajax({dataType: "json", url: "line-scheme",
+  success: function(lineGeojson) {
+    L.geoJson(lineGeojson).addTo(map);  
+    setInterval(function () {
+      $.ajax({dataType: "json", url: "positions",
+        success: function(positions) {
+          map.eachLayer(function(layer) {
+            if (layer instanceof L.Marker) {
+              map.removeLayer(layer);
+            }
+          });
+          if (positions.running !== null) {
+            for (var i = 0; i < positions.running.features.length; i++) {
+              addAnimatedMarker(map, positions.running.features[i].geometry.coordinates);
+            }
+          }
+          if (positions.halted !== null) {
+            for (var i = 0; i < positions.halted.features.length; i++) {
+              addMarker(map, positions.halted.features[i].geometry.coordinates);
+            }
+          }
+        }
+      }).error(function() {});
+    }, 10000);
+  }
+}).error(function() {});
 </script>
 </body>
 </html>
