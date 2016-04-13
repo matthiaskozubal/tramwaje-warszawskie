@@ -20,7 +20,7 @@ app.get('/line-scheme', function (req, res) {
 app.get('/positions', function (req, res) {
   console.log("[" + new Date().toString() + "] Running R script");
   exec("Rscript analysis/main.R", function (error, stdout, stderr) {
-    console.log(stdout + stderr);
+    console.log(stdout);
     if (error !== null) { console.log('exec error: ' + error); }
     var resultsRunningPath = 'data/vehicles-running.json'
     var resultsHaltedPath = 'data/vehicles-halted.json'

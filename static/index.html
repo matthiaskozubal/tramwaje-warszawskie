@@ -9,7 +9,7 @@
 <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
 <script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
-<script src="AnimatedMarker.js"></script>
+<script src="MovingMarker.js"></script>
 
 <style>
   body { margin:0; padding:0; }
@@ -27,8 +27,8 @@ var mapboxTiles = L.tileLayer('https://api.mapbox.com/v4/mapbox.streets/{z}/{x}/
 });
 
 var tramIcon = L.icon({
-  iconUrl: 'tram-icon.png',
-  iconSize: [25, 25]
+  iconUrl: 'tram.png',
+  iconSize: [36, 45]
 });
 
 function swapLonLat(coords) {
@@ -39,11 +39,9 @@ function swapLonLat(coords) {
 
 function addAnimatedMarker(map, lineCoords) {
   var line = L.polyline(lineCoords.map(swapLonLat));
-  var animatedMarker = L.animatedMarker(line.getLatLngs(), {
-    distance: 10,  // meters
-    interval: 1000, // milliseconds
+  var animatedMarker = L.Marker.movingMarker(line.getLatLngs(), [50000], {
     icon: tramIcon,
-    autoStart: false
+    autostart: true
   });
   map.addLayer(animatedMarker);
 }
@@ -81,7 +79,7 @@ $.ajax({dataType: "json", url: "line-scheme",
           }
         }
       }).error(function() {});
-    }, 10000);
+    }, 30000);
   }
 }).error(function() {});
 </script>

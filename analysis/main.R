@@ -1,6 +1,10 @@
 setwd("/home/pawel/projects/tramwaje-warszawskie/analysis/")
 print("Started script")
 
+# TODO
+# - czy ze wzgledu na losowanie punktu w circle on moze zle policzyc kierunek?
+# - moving marker: im blizej wierzcholka, tym wolniej animuje
+
 source('analysis.R')
 
 lineSchemePath = "../data/line_scheme_26.geojson"
@@ -20,7 +24,7 @@ if (file.exists(previousDataPath)) {
 
 data = getLineStatus(26, lineShape, prevData)
 print("Calculated current data")
-# showMap(line26n, lineShape)
+# showMap(data, lineShape)
 
 sl = getMovementSpatialDF(data)
 sp = getHaltSpatialDF(data)

@@ -32,7 +32,7 @@ getLinePositions = function(lineNum) {
   result = getAllPositions() %>% filter(FirstLine == lineNum)
   result$readTime = Sys.time()
   result$Brigade = as.numeric(result$Brigade)
-  result
+  result[!duplicated(result$Brigade),]
 }
 
 showMap <- function(positions, lineShape) {
@@ -118,13 +118,18 @@ measureSplitLengths <- function(lineData) {
 }
 
 calculateDirections <- function(data, previousData) {
-  direction = "unknown"
-  data$direction = direction
   for (i in data$Brigade) {
+    direction = "unknown"
+    data[data$Brigade == i, 'direction'] = direction
     len1 = data[data$Brigade == i, 'split1Length']
     len2 = data[data$Brigade == i, 'split2Length']
-    len1prev = previousData[previousData$Brigade == i, 'split1Length']
-    len2prev = previousData[previousData$Brigade == i, 'split2Length']
+    if (sum(prevData$Brigade == i) == 1) {
+      len1prev = previousData[previousData$Brigade == i, 'split1Length']
+      len2prev = previousData[previousData$Brigade == i, 'split2Length']
+    } else {
+      len1prev = 0
+      len2prev = 0
+    }
     if (len1 > 0 & len2 > 0 & len1prev > 0 & len2prev > 0) {
       diff1 = len1 - len1prev
       diff2 = len2 - len2prev
